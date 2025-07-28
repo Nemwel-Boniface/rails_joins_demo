@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_28_091948) do
   create_table "orders", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.string "pastry"
+    t.string "status"
     t.integer "quantity"
     t.integer "price_per_unit"
     t.date "order_date"
