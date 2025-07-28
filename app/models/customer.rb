@@ -1,3 +1,3 @@
 class Customer < ApplicationRecord
-  has_many :prders
+  has_many :orders
 end
