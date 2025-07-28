@@ -117,26 +117,40 @@ customers = Customer.create!([
 ])
 
 Order.create!([
-  { item: "Chapati", quantity: 10, price: 200.00, status: "delivered", customer: customers[0] },
-  { item: "Samosa", quantity: 5, price: 150.00, status: "pending", customer: customers[0] },
-  { item: "Ugali & Sukuma", quantity: 3, price: 300.00, status: "delivered", customer: customers[1] },
-  { item: "Mandazi", quantity: 20, price: 400.00, status: "cancelled", customer: customers[2] },
-  { item: "Chapati", quantity: 6, price: 120.00, status: "delivered", customer: customers[2] },
-  { item: "Nyama Choma", quantity: 2, price: 1000.00, status: "pending", customer: customers[3] },
-  { item: "Pilau", quantity: 4, price: 500.00, status: "delivered", customer: customers[4] },
-  { item: "Chips", quantity: 3, price: 300.00, status: "pending", customer: customers[4] },
-  { item: "Soda", quantity: 5, price: 250.00, status: "delivered", customer: customers[0] },
-  { item: "Tea", quantity: 7, price: 210.00, status: "cancelled", customer: customers[1] },
-  { item: "Uji", quantity: 8, price: 160.00, status: "pending", customer: customers[3] },
-  { item: "Bhajia", quantity: 6, price: 180.00, status: "delivered", customer: customers[2] },
-  { item: "Mutura", quantity: 4, price: 200.00, status: "pending", customer: customers[0] },
-  { item: "Mokimo", quantity: 5, price: 350.00, status: "delivered", customer: customers[1] },
-  { item: "Matoke", quantity: 3, price: 270.00, status: "cancelled", customer: customers[4] },
-  { item: "Samosa", quantity: 10, price: 300.00, status: "delivered", customer: customers[2] },
-  { item: "Chapati", quantity: 12, price: 240.00, status: "pending", customer: customers[1] },
-  { item: "Soda", quantity: 6, price: 300.00, status: "delivered", customer: customers[4] },
-  { item: "Tea", quantity: 9, price: 270.00, status: "delivered", customer: customers[3] },
-  { item: "Mandazi", quantity: 15, price: 300.00, status: "pending", customer: customers[0] }
+  { customer: customers[0], pastry: "Mandazi", quantity: 4, price_per_unit: 20, order_date: "2024-12-01", status: STATUSES.sample },
+  { customer: customers[0], pastry: "Samosa", quantity: 2, price_per_unit: 30, order_date: "2024-12-02", status: STATUSES.sample },
+  { customer: customers[0], pastry: "Kaimati", quantity: 3, price_per_unit: 15, order_date: "2024-12-04", status: STATUSES.sample },
+  { customer: customers[0], pastry: "Doughnut", quantity: 3, price_per_unit: 15, order_date: "2024-12-04", status: STATUSES.sample },
+  { customer: customers[0], pastry: "Samosa", quantity: 3, price_per_unit: 15, order_date: "2024-12-04", status: STATUSES.sample },
+  
+  { customer: customers[1], pastry: "Doughnut", quantity: 5, price_per_unit: 25, order_date: "2024-12-05", status: STATUSES.sample },
+  { customer: customers[1], pastry: "Samosa", quantity: 4, price_per_unit: 30, order_date: "2024-12-06", status: STATUSES.sample },
+  { customer: customers[1], pastry: "Mandazi", quantity: 3, price_per_unit: 20, order_date: "2024-12-07", status: STATUSES.sample },
+  { customer: customers[1], pastry: "Kaimati", quantity: 2, price_per_unit: 15, order_date: "2024-12-08", status: STATUSES.sample },
+  
+  { customer: customers[2], pastry: "Doughnut", quantity: 6, price_per_unit: 25, order_date: "2024-12-09", status: STATUSES.sample },
+  { customer: customers[2], pastry: "Mandazi", quantity: 5, price_per_unit: 20, order_date: "2024-12-10", status: STATUSES.sample },
+  { customer: customers[2], pastry: "Samosa", quantity: 2, price_per_unit: 30, order_date: "2024-12-11", status: STATUSES.sample },
+
+  { customer: customers[3], pastry: "Kaimati", quantity: 8, price_per_unit: 15, order_date: "2024-12-12", status: STATUSES.sample },
+  { customer: customers[3], pastry: "Samosa", quantity: 3, price_per_unit: 30, order_date: "2024-12-13", status: STATUSES.sample },
+  { customer: customers[3], pastry: "Doughnut", quantity: 7, price_per_unit: 25, order_date: "2024-12-14", status: STATUSES.sample },
+  
+  { customer: customers[4], pastry: "Mandazi", quantity: 6, price_per_unit: 20, order_date: "2024-12-15", status: STATUSES.sample },
+  { customer: customers[4], pastry: "Samosa", quantity: 1, price_per_unit: 30, order_date: "2024-12-16", status: STATUSES.sample },
+  { customer: customers[4], pastry: "Kaimati", quantity: 4, price_per_unit: 15, order_date: "2024-12-17", status: STATUSES.sample },
+  { customer: customers[4], pastry: "Doughnut", quantity: 3, price_per_unit: 25, order_date: "2024-12-18", status: STATUSES.sample },
+  { customer: customers[4], pastry: "Samosa", quantity: 2, price_per_unit: 30, order_date: "2024-12-19", status: STATUSES.sample },
+  { customer: customers[4], pastry: "Mandazi", quantity: 2, price_per_unit: 20, order_date: "2024-12-20", status: STATUSES.sample },
+  { customer: customers[4], pastry: "Kaimati", quantity: 5, price_per_unit: 15, order_date: "2024-12-21", status: STATUSES.sample },
+
+  { customer: customers[5], pastry: "Mandazi", quantity: 6, price_per_unit: 20, order_date: "2024-12-15", status: STATUSES.sample },
+  { customer: customers[5], pastry: "Samosa", quantity: 1, price_per_unit: 30, order_date: "2024-12-16", status: STATUSES.sample },
+  { customer: customers[5], pastry: "Kaimati", quantity: 4, price_per_unit: 15, order_date: "2024-12-17", status: STATUSES.sample },
+  { customer: customers[5], pastry: "Doughnut", quantity: 3, price_per_unit: 25, order_date: "2024-12-18", status: STATUSES.sample },
+  { customer: customers[5], pastry: "Samosa", quantity: 2, price_per_unit: 30, order_date: "2024-12-19", status: STATUSES.sample },
+  { customer: customers[5], pastry: "Mandazi", quantity: 2, price_per_unit: 20, order_date: "2024-12-20", status: STATUSES.sample },
+  { customer: customers[5], pastry: "Kaimati", quantity: 5, price_per_unit: 15, order_date: "2024-12-21", status: STATUSES.sample }
 ])
 ```
 
