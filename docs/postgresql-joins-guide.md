@@ -103,3 +103,77 @@ INSERT INTO orders (customer_id, pastry, quantity, price_per_unit, order_date, s
 <img width="1491" height="721" alt="Image" src="https://github.com/user-attachments/assets/9d594e5d-4ac9-463d-8ece-8e6abc580093" />
 
 <img width="1607" height="798" alt="Image" src="https://github.com/user-attachments/assets/01cfa921-bf6a-4ba0-b359-5a4e9edf8723" />
+
+### 3. Connection Instructions
+
+To test these queries:
+1. Open your terminal
+2.  Connect to PostgreSQL: `psql -U your_username -d kenyan_pastries_shop`
+     - Enter your password when prompted
+
+You can now run any of the following join queries
+
+Join Query Examples
+#### 1. INNER JOIN
+```
+-- Get customers with their orders (only customers who have ordered)
+SELECT customers.name, customers.location, orders.pastry, orders.quantity
+FROM customers
+INNER JOIN orders ON customers.id = orders.customer_id;
+```
+
+<img width="1388" height="845" alt="Image" src="https://github.com/user-attachments/assets/8d0b246b-11ea-4d15-92be-ac54a48e748c" />
+
+#### 2. LEFT OUTER JOIN
+```
+-- Get all customers, even if they haven't ordered
+SELECT customers.name, customers.location, orders.pastry, orders.quantity
+FROM customers
+LEFT OUTER JOIN orders ON customers.id = orders.customer_id;
+```
+
+<img width="1388" height="845" alt="Image" src="https://github.com/user-attachments/assets/c9ea09fb-bad3-40b9-9430-3a86baaff35d" />
+
+#### 3. RIGHT OUTER JOIN
+```
+-- Get all orders with customer info
+SELECT customers.name, orders.pastry, orders.order_date, orders.status
+FROM customers
+RIGHT OUTER JOIN orders ON customers.id = orders.customer_id;
+```
+
+<img width="1388" height="845" alt="Image" src="https://github.com/user-attachments/assets/6bb49d52-4f7d-4a27-828e-a7c4ab0efa3e" />
+
+#### 4. FULL OUTER JOIN
+```
+-- Get all records from both tables
+SELECT customers.name, orders.pastry, orders.order_date
+FROM customers
+FULL OUTER JOIN orders ON customers.id = orders.customer_id;
+```
+
+<img width="1388" height="845" alt="Image" src="https://github.com/user-attachments/assets/d8162728-baf8-438e-b382-81c929b0a7d6" />
+
+#### 5. SELF JOIN
+
+First, set up the referral relationship:
+```
+-- Add referral column
+ALTER TABLE customers ADD COLUMN referred_by INTEGER REFERENCES customers(id);
+```
+
+```
+-- Update some referrals
+UPDATE customers SET referred_by = 1 WHERE id IN (2, 3);
+UPDATE customers SET referred_by = 2 WHERE id = 4;
+```
+
+Then run the self join:
+```
+-- Find customers and who referred them
+SELECT c1.name AS customer, c2.name AS referred_by
+FROM customers c1
+LEFT JOIN customers c2 ON c1.referred_by = c2.id;
+```
+
+<img width="1388" height="475" alt="Image" src="https://github.com/user-attachments/assets/8875da79-fe83-442b-b72a-25ef078f15b6" />
