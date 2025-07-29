@@ -177,3 +177,54 @@ LEFT JOIN customers c2 ON c1.referred_by = c2.id;
 ```
 
 <img width="1388" height="475" alt="Image" src="https://github.com/user-attachments/assets/8875da79-fe83-442b-b72a-25ef078f15b6" />
+
+#### 6. CROSS JOIN
+```
+-- Get all possible combinations of customers and pastries
+SELECT c.name, p.pastry
+FROM customers c
+CROSS JOIN (SELECT DISTINCT pastry FROM orders) p;
+```
+
+<img width="1011" height="733" alt="Image" src="https://github.com/user-attachments/assets/1e17746b-6672-431d-a197-8b4f07e30888" />
+
+**Other practical Join Examples**
+
+```
+-- 1. Find completed orders from Nairobi customers
+SELECT c.name, o.pastry, o.order_date
+FROM customers c
+INNER JOIN orders o ON c.id = o.customer_id
+WHERE c.location = 'Nairobi' AND o.status = 'completed';
+```
+
+```
+-- 2. Count orders per customer (including those with zero orders)
+SELECT c.name, COUNT(o.id) AS order_count
+FROM customers c
+LEFT JOIN orders o ON c.id = o.customer_id
+GROUP BY c.id
+ORDER BY order_count DESC;
+```
+
+```
+-- 3. Find customers who ordered both Mandazi and Samosa
+SELECT DISTINCT c.name, c.location
+FROM customers c
+INNER JOIN orders o1 ON c.id = o1.customer_id AND o1.pastry = 'Mandazi'
+INNER JOIN orders o2 ON c.id = o2.customer_id AND o2.pastry = 'Samosa';
+```
+
+```
+-- 4. Calculate total sales by location
+SELECT c.location, SUM(o.quantity * o.price_per_unit) AS total_sales
+FROM customers c
+INNER JOIN orders o ON c.id = o.customer_id
+WHERE o.status = 'completed'
+GROUP BY c.location
+ORDER BY total_sales DESC;
+````
+
+### Main repository Link
+
+For a complete Rails application demonstrating these concepts, see: GitHub [Repository Link](https://github.com/Nemwel-Boniface/rails_joins_demo).
