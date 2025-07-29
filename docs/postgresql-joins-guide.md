@@ -42,3 +42,64 @@ CREATE TABLE orders (
 ```
 
 <img width="1118" height="491" alt="Image" src="https://github.com/user-attachments/assets/17afd9f6-a487-4357-86b5-fc6a14b7c3ff" />
+
+
+### 2. Insert Sample Data
+
+```
+-- Insert customers
+INSERT INTO customers (name, location, phone, email) VALUES
+('Nemwel Boniface', 'Kisii', '0712785678', 'nemwel@gmail.com'),
+('Akinyi Otieno', 'Kisumu', '0712345678', 'akinyi@gmail.com'),
+('Brian Mwangi', 'Nairobi', '0700111222', 'brian@gmail.com'),
+('Mercy Njuguna', 'Nakuru', '0733221144', 'mercy@yahoo.com'),
+('Kevin Kiptoo', 'Eldoret', '0722345678', 'kiptoo@hotmail.com'),
+('Faith Achieng', 'Kisumu', '0733445566', 'faitha@gmail.com');
+```
+
+<img width="1138" height="204" alt="Image" src="https://github.com/user-attachments/assets/5eb2cea3-e8b5-4e76-8689-b810ee0348e7" />
+
+<img width="1138" height="280" alt="Image" src="https://github.com/user-attachments/assets/654f3708-e8e3-40d5-94b6-3d8b9f27b4a0" />
+
+```
+-- Insert orders
+INSERT INTO orders (customer_id, pastry, quantity, price_per_unit, order_date, status) VALUES
+(1, 'Mandazi', 4, 20.00, '2024-12-01', 'completed'),
+(1, 'Samosa', 2, 30.00, '2024-12-02', 'completed'),
+(1, 'Kaimati', 3, 15.00, '2024-12-04', 'pending'),
+(1, 'Doughnut', 3, 15.00, '2024-12-04', 'cancelled'),
+(1, 'Samosa', 3, 15.00, '2024-12-04', 'completed'),
+
+(2, 'Doughnut', 5, 25.00, '2024-12-05', 'completed'),
+(2, 'Samosa', 4, 30.00, '2024-12-06', 'completed'),
+(2, 'Mandazi', 3, 20.00, '2024-12-07', 'pending'),
+(2, 'Kaimati', 2, 15.00, '2024-12-08', 'completed'),
+
+(3, 'Doughnut', 6, 25.00, '2024-12-09', 'completed'),
+(3, 'Mandazi', 5, 20.00, '2024-12-10', 'completed'),
+(3, 'Samosa', 2, 30.00, '2024-12-11', 'pending'),
+
+(4, 'Kaimati', 8, 15.00, '2024-12-12', 'completed'),
+(4, 'Samosa', 3, 30.00, '2024-12-13', 'completed'),
+(4, 'Doughnut', 7, 25.00, '2024-12-14', 'pending'),
+
+(5, 'Mandazi', 6, 20.00, '2024-12-15', 'completed'),
+(5, 'Samosa', 1, 30.00, '2024-12-16', 'completed'),
+(5, 'Kaimati', 4, 15.00, '2024-12-17', 'pending'),
+(5, 'Doughnut', 3, 25.00, '2024-12-18', 'completed'),
+(5, 'Samosa', 2, 30.00, '2024-12-19', 'completed'),
+(5, 'Mandazi', 2, 20.00, '2024-12-20', 'pending'),
+(5, 'Kaimati', 5, 15.00, '2024-12-21', 'completed'),
+
+(6, 'Mandazi', 6, 20.00, '2024-12-15', 'completed'),
+(6, 'Samosa', 1, 30.00, '2024-12-16', 'completed'),
+(6, 'Kaimati', 4, 15.00, '2024-12-17', 'pending'),
+(6, 'Doughnut', 3, 25.00, '2024-12-18', 'completed'),
+(6, 'Samosa', 2, 30.00, '2024-12-19', 'completed'),
+(6, 'Mandazi', 2, 20.00, '2024-12-20', 'pending'),
+(6, 'Kaimati', 5, 15.00, '2024-12-21', 'completed');
+```
+
+<img width="1491" height="721" alt="Image" src="https://github.com/user-attachments/assets/9d594e5d-4ac9-463d-8ece-8e6abc580093" />
+
+<img width="1607" height="798" alt="Image" src="https://github.com/user-attachments/assets/01cfa921-bf6a-4ba0-b359-5a4e9edf8723" />
